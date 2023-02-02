@@ -15,5 +15,4 @@ jobs:
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
       with:
-        args: "New code pushed to repository."
-        
+        slack-message: "New code pushed to repository."
