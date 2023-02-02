@@ -15,3 +15,4 @@ jobs:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       with:
         args: ${{ toJson(steps.send-greeting.outputs) }}
+        
