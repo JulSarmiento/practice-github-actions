@@ -4,3 +4,7 @@ Generar una solucion para que cuando un Actions (de github) falle, notificar por
 Probando paso por paso
 
 faltaba el checkout en el yml
+
+quitando el actions/bin@v1
+
+quitando el actions/bin@v1
