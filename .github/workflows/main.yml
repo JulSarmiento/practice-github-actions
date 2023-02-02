@@ -3,8 +3,8 @@ on: [push]
 
 jobs:
   build:
-     greeting:
-    runs-on: ubuntu-latest
+    greeting:
+      runs-on: ubuntu-latest
 
     steps:
     - name: Send greeting
