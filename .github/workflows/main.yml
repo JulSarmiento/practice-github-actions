@@ -1,14 +1,24 @@
 name: Example Workflow
 on: [push]
 
+env:
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
 jobs:
   build:
+     greeting:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Notify Slack
-      uses: peter-evans/slack-action@v1
+    - name: Send greeting
+      uses: actions/bin/filter@v1
       with:
-        args: Build succeeded 🎉
+        args: echo "Hello from Github Actions! :wave:"
+
+    - name: Notify Slack
+      uses: slack-actions/slack-message@v1
       env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_URL: ${{ env.SLACK_WEBHOOK_URL }}
+      with:
+        args: ${{ toJson(steps.send-greeting.outputs) }}
+      
