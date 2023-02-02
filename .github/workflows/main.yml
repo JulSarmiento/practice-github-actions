@@ -9,11 +9,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Send greeting
-      uses: actions/bin/filter@v1
-      with:
-        args: echo "Hello from Github Actions! :wave:"
-
     - name: Notify Slack
       uses: slack-actions/slack-message@v1
       env:
