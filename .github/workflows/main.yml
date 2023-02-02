@@ -1,9 +1,6 @@
 name: Example Workflow
 on: [push]
 
-env:
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
 jobs:
   build:
      greeting:
@@ -18,7 +15,7 @@ jobs:
     - name: Notify Slack
       uses: slack-actions/slack-message@v1
       env:
-        SLACK_WEBHOOK_URL: ${{ env.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       with:
         args: ${{ toJson(steps.send-greeting.outputs) }}
       
