@@ -1,0 +1,14 @@
+name: Example Workflow
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Notify Slack
+      uses: peter-evans/slack-action@v1
+      with:
+        args: Build succeeded 🎉
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
